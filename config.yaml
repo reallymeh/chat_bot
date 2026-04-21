@@ -1,0 +1,27 @@
+industry: "e-commerce"                    
+chatbot_name: "E-Commerce Chatbot"
+embedding_model: "nomic-embed-text"
+llm_model: "llama3.1:8b" 
+chroma_collection: "e-comm_docs"
+persist_directory: "./chroma_db"
+# Chunking
+chunk_size: 1000
+chunk_overlap: 200
+# Generation
+temperature: 0.2
+max_tokens: 2048
+data_folder: "./data"
+top_k: 5
+
+
+system_prompt_template: |
+  You are an assistant which answers questions based on knowledge which is provided to you.
+  While answering, you don't use your internal knowledge, 
+  but solely the information in the "The knowledge" section.
+  You don't mention anything to the user about the provided knowledge.
+
+  The question: {message}
+
+  Conversation history: {history}
+
+  The knowledge: {knowledge}
